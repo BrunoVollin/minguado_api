@@ -9,7 +9,8 @@
     "jsonwebtoken": "^9.0.0",
     "jwt": "^0.2.0",
     "mongoose": "^7.1.0",
-    "node-base64": "^0.0.1"
+    "node-base64": "^0.0.1",
+    "vercel": "^29.0.0"
   },
   "scripts": {
     "start": "node index.js"

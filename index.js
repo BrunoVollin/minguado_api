@@ -29,7 +29,7 @@ app.post('/signup', (req, res) => {
         .then(() => {
             const payload = { username };
             const token = jwt.sign(payload, secretKey, { expiresIn: '100000000000h' });
-            res.send({ token })
+            res.send(token)
         })
         .catch((err) => {
             res.status(500).send('Error registering new user please try again. ' + err);``
@@ -48,7 +48,7 @@ app.post('/login', (req, res) => {
                 } else {
                     const payload = { username };
                     const token = jwt.sign(payload, secretKey, { expiresIn: '100000000000h' });
-                    res.send({ token });
+                    res.send(token);
                 }
             }
         })

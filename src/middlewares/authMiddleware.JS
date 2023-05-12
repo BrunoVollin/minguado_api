@@ -11,3 +11,8 @@ exports.authenticateUser = (req, res, next) => {
     res.status(401).json({ message: 'Authentication failed' });
   }
 };
+
+exports.generateToken = ({ name, password }) => {
+  const token = jwt.sign({ user: { name, password } }, process.env.JWT_SECRET, { expiresIn: '1h' });
+  return token;
+}

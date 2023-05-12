@@ -2,17 +2,24 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
 const storeController = require('../controllers/storeController');
+const questController = require('../controllers/questController');
+const inventoryController = require('../controllers/inventoryController');
+const { authenticateUser } = require('../middlewares/authMiddleware.JS');
 
 router.post('/', userController.createUser);
-router.get('/?id', userController.getUserById);
+router.get('/', userController.getUserById);
 
-router.get('/quests', userController.getAllQuests);
+router.get('/quests', authenticateUser, questController.getAllQuests);
+router.post('/quests', authenticateUser, questController.postQuests);
+router.put('/quests', authenticateUser, questController.updateQuests);
+router.delete('/quests', authenticateUser, questController.deleteQuests);
 
-router.get('/store', storeController.getAllStore);
-router.post('/store', storeController.postStore);
-router.put('/store', storeController.updateStore);
-router.delete('/store', storeController.deleteStore);
+router.get('/store', authenticateUser, storeController.getAllStore);
+router.post('/store', authenticateUser, storeController.postStore);
+router.put('/store', authenticateUser, storeController.updateStore);
+router.delete('/store', authenticateUser, storeController.deleteStore);
 
-
+router.get('/inventory', authenticateUser, inventoryController.getInventory);
+router.post('/inventory', authenticateUser, inventoryController.postInventory);
 
 module.exports = router;

@@ -4,6 +4,7 @@ const userController = require('../controllers/userController');
 const storeController = require('../controllers/storeController');
 const questController = require('../controllers/questController');
 const inventoryController = require('../controllers/inventoryController');
+const gameController = require('../controllers/gameController');
 const enemiesController = require('../controllers/enemiesController');
 const { authenticateUser } = require('../middlewares/authMiddleware.JS');
 
@@ -23,8 +24,7 @@ const { authenticateUser } = require('../middlewares/authMiddleware.JS');
 // router.get('/inventory', authenticateUser, inventoryController.getInventory);
 // router.post('/inventory', authenticateUser, inventoryController.postInventory);
 
-// router.get('/enemies', authenticateUser, enemiesController.getEnemies);
-// router.post('/enemies', authenticateUser, enemiesController.postEnemies);
-router.get('/enemies', authenticateUser, enemiesController.postEnemies);
+router.get('/enemies', authenticateUser, enemiesController.getEnemies);
+router.get('/game', gameController.getGame);
 
 module.exports = router;

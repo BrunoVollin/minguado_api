@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../controllers/userController');
-const storeController = require('../controllers/storeController');
-const questController = require('../controllers/questController');
-const inventoryController = require('../controllers/inventoryController');
+// const userController = require('../controllers/userController');
+// const storeController = require('../controllers/storeController');
+// const questController = require('../controllers/questController');
+// const inventoryController = require('../controllers/inventoryController');
 const gameController = require('../controllers/gameController');
 const enemiesController = require('../controllers/enemiesController');
 const { authenticateUser } = require('../middlewares/authMiddleware.JS');

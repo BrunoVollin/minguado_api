@@ -26,5 +26,7 @@ const { authenticateUser } = require('../middlewares/authMiddleware.JS');
 
 router.get('/enemies', authenticateUser, enemiesController.getEnemies);
 router.get('/game', gameController.getGame);
+router.put('/game', gameController.updateGame);
+
 
 module.exports = router;
